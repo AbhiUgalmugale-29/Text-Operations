@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Text operations</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        background-color: #e2bfd9;
+      }
+
+      .text-center {
+        text-align: center;
+        color: #58284d;
+      }
+
+      .text-box {
+        height: 70px;
+        width: 40%;
+        padding: 20px;
+        display: block;
+        margin: 30px auto;
+        border-radius: 20px;
+        font-size: 16px;
+        border: 2px solid #58284d;
+      }
+
+      .buttons-container {
+        display: flex;
+        justify-content: space-evenly;
+        width: 40%;
+        margin: 40px auto;
+      }
+
+      .btn {
+        height: 40px;
+        width: 120px;
+        border-radius: 10px;
+        border: 2px solid #58284d;
+        background-color: #b04f99;
+        color: white;
+        font-size: 13px;
+        font-weight: bold;
+        cursor: pointer;
+      }
+
+      .btn:hover {
+        background-color: #8f2a95;
+        box-shadow: 0 5px 10px rgba(11, 11, 11, 0.2);
+      }
+
+      @media only screen and (max-width: 768px) {
+        .text-box {
+          width: 60%;
+        }
+        .buttons-container {
+          flex-direction: column;
+          width: 60%;
+        }
+        .btn {
+          width: 100%;
+          margin-bottom: 10px;
+        }
+      }
+
+      @media only screen and (min-width: 768px) and (max-width: 1285px) {
+        .text-box {
+          width: 60%;
+        }
+        .buttons-container {
+          flex-direction: row;
+          width: 60%;
+        }
+        .btn {
+          margin-bottom: 10px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1 class="text-center">Text operations</h1>
+    <input
+      type="text"
+      id="input"
+      class="text-box"
+      placeholder="Enter Text To Perform Operations"
+    />
+
+    <input
+      type="text"
+      id="output"
+      class="text-box"
+      placeholder="Output Will Be Displayed Here"
+    />
+
+    <div class="buttons-container">
+      <button type="button" class="btn" onclick="handleTextOps('uppercase')">
+        Upper Case
+      </button>
+      <button type="button" class="btn" onclick="handleTextOps('lowercase')">
+        Lower Case
+      </button>
+      <button type="button" class="btn" onclick="handleTextOps('wordcount')">
+        Word Count
+      </button>
+      <button type="button" class="btn" onclick="handleTextOps('charcount')">
+        Character Count
+      </button>
+    </div>
+
+    <script>
+      const inputElement = document.getElementById("input");
+      const outputElement = document.getElementById("output");
+
+      function handleTextOps(op) {
+        if (op == "uppercase") {
+          outputElement.value = inputElement.value.toUpperCase();
+        } else if (op == "lowercase") {
+          outputElement.value = inputElement.value.toLowerCase();
+        } else if (op == "wordcount") {
+          outputElement.value =
+            "Word Count : " + inputElement.value.split(" ").length;
+        } else if (op == "charcount") {
+          outputElement.value =
+            "Character Count : " + inputElement.value.length;
+        }
+      }
+    </script>
+  </body>
+</html>
